@@ -1,11 +1,9 @@
-# Vue 3 + Typescript + Vite
+# Auto Attend Lessons
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+这个工具的功能是定时自动打开指定网页，并且在指定的时间关掉。设计时候的作用是自动挂网课
 
-## Recommended IDE Setup
+## 自动挂网课的用法
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+首先确定你是用的课程平台（腾讯课堂之类）是登录状态，安装好自动签到、复读机之类需要的插件（比如说[这个](https://greasyfork.org/zh-CN/scripts/401115)）
 
-## Type Support For `.vue` Imports in TS
-
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+然后打开 <https://autolesson.clansty.com/> 或者你自己部署的版本，设置好课程的开始时间、结束时间以及腾讯课堂的网址。开始时间最好提前一点，结束时间延迟一点。但是课程之间不要有重合，因为没对这个做优化。然后到时间就会自动打开网页了
