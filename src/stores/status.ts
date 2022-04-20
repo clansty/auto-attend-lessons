@@ -6,10 +6,16 @@ const useStatus = defineStore('status', {
     return {
       lastUpdate: 0,
       currentLesson: '',
-      logs: [
-        { time: 23333333333, level: 'warning', content: 'qwq' },
-      ] as Log[],
+      logs: [] as Log[],
     };
+  },
+  actions: {
+    addLog(level: string, content: string) {
+      this.logs.push({
+        level, content,
+        time: new Date().getTime(),
+      });
+    },
   },
 });
 

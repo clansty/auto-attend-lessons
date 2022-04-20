@@ -1,14 +1,12 @@
 import { defineComponent } from 'vue';
-import useLessons from '@/stores/lessons';
 import { NDynamicInput, NForm, NFormItem, NInput, NTimePicker } from 'naive-ui';
 import Lesson from '@/types/Lesson';
+import lessons from '@/stores/lessons';
 
 const weekdays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 
 export default defineComponent({
   setup() {
-    const lessons = useLessons();
-
     return () => (
       <NForm labelPlacement="top" labelWidth="auto">
         <NFormItem label="注意">

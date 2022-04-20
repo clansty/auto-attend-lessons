@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue';
 import { NForm, NFormItem, NText, NTime } from 'naive-ui';
 import useStatus from '@/stores/status';
+import lessons from '@/stores/lessons';
 
 export default defineComponent({
   setup() {
@@ -13,11 +14,12 @@ export default defineComponent({
         </NFormItem>
         <NFormItem label="最近更新">
           <NTime time={status.lastUpdate} format="yyyy-M-d H:mm:ss" />
-          （每分钟判断一次最新状态）
         </NFormItem>
         <NFormItem label="当前课程">
           <NText type={status.currentLesson ? 'warning' : 'success'}>
-            {status.currentLesson || '空闲'}
+            {status.currentLesson ?
+              lessons.value.flatMap(it => it).find(lesson => lesson.id === status.currentLesson)?.name :
+              '空闲'}
           </NText>
         </NFormItem>
       </NForm>
